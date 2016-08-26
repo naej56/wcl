@@ -1,0 +1,149 @@
+/**
+ * Ajout de la police de carctère
+ */
+@font-face{
+	font-family: "Orbitron-Black";
+	src: url('font/Orbitron-Black.ttf');
+}
+
+/**
+ * Ajout de class pour centrer le texte dasn boostrap
+ */
+
+/* Comportement par défaut */,
+.text-left-sm,
+.text-left-md,
+.text-left-lg,
+.text-center-sm,
+.text-center-md,
+.text-center-lg,
+.text-right-sm,
+.text-right-md,
+.text-right-lg,
+.text-justify-sm,
+.text-justify-md,
+.text-justify-lg { 
+	text-align: inherit; 
+}
+/* Style par défaut */
+.text-left-xs { 
+	text-align: left; 
+}
+.text-center-xs { 
+	text-align: center; 
+}
+.text-right-xs { 
+	text-align: right;
+}
+.text-justify-xs { 
+	text-align: justify; 
+}
+/* Style pour tablette */
+@media (min-width: 768px) {
+	.text-left-sm, 
+	.text-left-xs { 
+		text-align: left; 
+	}
+	.text-center-sm, 
+	.text-center-xs { 
+		text-align: center; 
+	}
+	.text-right-sm, 
+	.text-right-xs { 
+		text-align: right; 
+	}
+	.text-justify-sm, 
+	.text-justify-xs { 
+		text-align: justify; 
+	}
+}
+/* Style pour desktop */
+@media (min-width: 992px) {
+	  .text-left-md, 
+	  .text-left-sm, 
+	  .text-left-xs { 
+		  text-align: left; 
+	  }
+	  .text-center-md, 
+	  .text-center-sm, 
+	  .text-center-xs { 
+		  text-align: center; 
+	  }
+	.text-right-md, 
+	.text-right-sm, 
+	.text-right-xs { 
+		text-align: right;
+	}
+	.text-justify-md, 
+	.text-justify-sm, 
+	.text-justify-xs { 
+		text-align: justify;
+	}
+}
+/* Style pour grand desktop */
+@media (min-width: 1200px) {
+	.text-left-lg, 
+	.text-left-md, 
+	.text-left-sm, 
+	.text-left-xs {
+		text-align: left;
+	}
+	.text-center-lg, 
+	.text-center-md, 
+	.text-center-sm, 
+	.text-center-xs {
+		text-align: center;
+	}
+	.text-right-lg, 
+	.text-right-md, 
+	.text-right-sm, 
+	.text-right-xs {
+		text-align: right;
+	}
+	.text-justify-lg, 
+	.text-justify-md, 
+	.text-justify-sm, 
+	.text-justify-xs {
+		text-align: justify;
+	}
+}
+
+/**
+ * Mise en page pour le login
+ */
+.login-layout{
+	margin-top: 20px;
+}
+
+/**
+ * modification pour les inputs
+ */
+.form-control{
+	display:block;
+	width:100%;
+	height:34px;
+	padding:6px 12px;
+	font-size:14px;
+	line-height:1.428571429;
+	color:#1eff00;
+	background-color:#000;
+	background-image:none;
+	border-right: none;
+	border-top: none;
+	border-left: none;
+	border-bottom:3px solid #1eff00;
+	border-radius:0;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+.form-control:focus{
+	border-right: none;
+	border-top: none;
+	border-left: none;
+	border-color:#66afe9;
+	outline:none;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6)
+}
