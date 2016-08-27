@@ -22,7 +22,9 @@ class App{
 	}
 
 	static function redirect($page){
-		header("Location: $page");
+		$session = Session::getInstance();
+		$session->write('pwd',$page);
+		header("Location: index.php");
 	}
 
 }
