@@ -7,10 +7,10 @@ App::load();
 
 Session::getInstance();
 
-if(isset($_GET['pwd'])){
-	$pwd = $_GET['pwd'];
+if(isset($_SESSION['pwd'])){
+	$pwd = $_SESSION['pwd'];
 } else {
-	$pwd = 'home';
+	$pwd = '404';
 }
 
 if(!Auth::isAuth()){
@@ -22,6 +22,8 @@ if($pwd === 'login'){
 	require ROOT . '/page/LoginPage.php';
 } elseif($pwd === 'home'){
 	require ROOT . '/page/HomePage.php';
+} elseif($pwd === '404'){
+	require ROOT . '/page/404.php';
 }
 
 $content = ob_get_clean();
