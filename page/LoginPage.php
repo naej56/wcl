@@ -32,23 +32,24 @@ if(isset($_POST['action'])){
 } 
 ?>
 
-<?php if($session->hasFlash()): ?>
-	<div class="row">
-	<?php foreach($session->getFlash() as $type => $content): ?>
-		<div class="alert alert-<?= $type; ?>"><?= $content; ?></div>
-	<?php endforeach; ?>
-	</div>
-<?php endif; ?>
 
- <div class="row login-layout">
- 	<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 vertical-center">
+
+ <div class="row row-first">
+ 	<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5 text-center-xs">
+ 		<?php if($session->hasFlash()): ?>
+			<div class="">
+			<?php foreach($session->getFlash() as $type => $content): ?>
+				<div class="alert alert-<?= $type; ?>"><?= $content; ?></div>
+			<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
  		<form action="index.php" method="POST" class="form-signin">
  			<div class="form-group">
- 				<div class="text-center-xs"><label>Login</label></div>
+ 				<label for="login">Login</label>
  				<input type="text" name="login" class="form-control" value="<?= $login; ?>" required <?php if(!$tryConnect): ?> autofocus<?php endif; ?>/>
  			</div>
  			<div class="form-group">
- 				<div class="text-center-xs"><label>Password</label></div>
+ 				<label for="password">Password</label>
  				<input type="password" name="password" class="form-control" required <?php if($tryConnect): ?> autofocus<?php endif; ?>
  				/>
  			</div>
