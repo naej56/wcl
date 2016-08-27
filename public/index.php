@@ -7,22 +7,6 @@ App::load();
 
 Session::getInstance();
 
-/*if(isset($_GET['pwd'])){
-	$pwd = $_GET['pwd'];
-} else {
-	$pwd = 'home';
-}*/
-
-/*if(isset($_POST['pwd'])){
-	$pwd = $_POST['pwd'];
-} else {
-	$pwd = '404';
-}
-
-if(!Auth::isAuth()){
-	$pwd = 'login';
-}*/
-
 if(isset($_SESSION['pwd'])){
 	$pwd = $_SESSION['pwd'];
 } else {

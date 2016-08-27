@@ -5,6 +5,7 @@ use app\session\Session;
 $session = Session::getInstance();
 $auth = App::getAuth();
 $login = '';
+$tryConnect = false;
 
 if(isset($_POST['action'])){
 	if($_POST['action'] === 'login'){
@@ -12,21 +13,23 @@ if(isset($_POST['action'])){
 			$login = $_POST['login'];
 			$password = $_POST['password'];
 			if($auth->login($login, $password)){
-				$session->setFlash('success', 'Bienvenu !');
-				$isLog = true;
+				$session->setFlash('success', 'Bienvenue');
+				App::redirect('home');
+				debug($fichier, $_SESSION['flash']['success']);
+				exit();
 			} else {
 				$session->setFlash('danger', 'Erreur d\'identification');
-				$isLog = false;
+				$tryConnect = true;
 			}
-			if($isLog){
-				App::redirect('home');
-			} /*else {
-				App::redirect('login');
-			}*/
 		}
+	} elseif ($_POST['action'] === 'logout'){
+		$session->delete('auth');
+		session_destroy();
+		$session->setFlash('success', 'Déconnection !');
+		App::redirect('login');
+		exit();
 	}
-}
-
+} 
 ?>
 
 <?php if($session->hasFlash()): ?>
@@ -42,14 +45,15 @@ if(isset($_POST['action'])){
  		<form action="index.php" method="POST" class="form-signin">
  			<div class="form-group">
  				<div class="text-center-xs"><label>Login</label></div>
- 				<input type="text" name="login" class="form-control" value="<?= $login; ?>" required autofocus>
+ 				<input type="text" name="login" class="form-control" value="<?= $login; ?>" required <?php if(!$tryConnect): ?> autofocus<?php endif; ?>/>
  			</div>
  			<div class="form-group">
  				<div class="text-center-xs"><label>Password</label></div>
- 				<input type="password" name="password" class="form-control" required>
+ 				<input type="password" name="password" class="form-control" required <?php if($tryConnect): ?> autofocus<?php endif; ?>
+ 				/>
  			</div>
  			<label>  </label>
- 			<button type="sublit" class="btn btn-block btn-success">Login</button>
+ 			<button type="submit" class="btn btn-block btn-success">Login</button>
 			<input type="hidden" name="action" value="login">
 			<input type="hidden" name="pwd" value="login">
  		</form>
